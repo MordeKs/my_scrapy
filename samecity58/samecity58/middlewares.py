@@ -4,6 +4,7 @@
 # https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
 from scrapy import signals
+import random
 
 # useful for handling different item types with a single interface
 from itemadapter import is_item, ItemAdapter
@@ -60,7 +61,9 @@ class Samecity58DownloaderMiddleware:
     # Not all methods need to be defined. If a method is not defined,
     # scrapy acts as if the downloader middleware does not modify the
     # passed objects.
-
+    PROXIES = [
+        '182.111.64.8:53364'
+    ]
     @classmethod
     def from_crawler(cls, crawler):
         # This method is used by Scrapy to create your spiders.
@@ -78,7 +81,9 @@ class Samecity58DownloaderMiddleware:
         # - or return a Request object
         # - or raise IgnoreRequest: process_exception() methods of
         #   installed downloader middleware will be called
-        return None
+        # return None
+        proxy = random.choice(self.PROXIES)
+        request.meta['proxy'] = proxy
 
     def process_response(self, request, response, spider):
         # Called with the response returned from the downloader.
