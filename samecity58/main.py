@@ -9,4 +9,4 @@
 
 from scrapy.cmdline import execute
 
-execute(['scrapy','crawl','tongcheng','-o','items.json'])
+execute(['scrapy','crawl','novel','-o','items.json'])

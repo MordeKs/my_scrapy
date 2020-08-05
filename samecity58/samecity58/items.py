@@ -17,3 +17,5 @@ class Samecity58Item(scrapy.Item):
     # name = scrapy.Field()
     prices = scrapy.Field()
     goods = scrapy.Field()
+    url = scrapy.Field()
+    chapter_name = scrapy.Field()

@@ -17,7 +17,6 @@ class TongchengSpider(scrapy.Spider):
 
     def parse(self, response):
         page = 100
-
         detail_page = response.css('.tdiv')
         for i in detail_page:
             print(i)
